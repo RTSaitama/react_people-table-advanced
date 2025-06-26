@@ -47,7 +47,7 @@ export const useFilters = (people: Person[] | null) => {
           return true;
         }
 
-        const century = Math.ceil(person.born / 100).toString();
+        const century = (Math.floor((person.born - 1) / 100) + 1).toString();
 
         return centuries.includes(century);
       });
