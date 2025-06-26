@@ -3,9 +3,11 @@ import { useMemo } from 'react';
 import { SortTypes } from '../types/sortTypes';
 import { Person } from '../types';
 import { OrderTypes } from '../types/orderTypes';
+
 export enum Sex {
   female = 'f',
   male = 'm',
+  all = '',
 }
 
 export const useFilters = (people: Person[] | null) => {

@@ -5,14 +5,14 @@ import { useCallback } from 'react';
 import { SearchLink } from './SearchLink';
 import { SEX_FILTERS, CENTURIES_FILTERS } from '../Constants';
 import { Person } from '../types';
-
+import { Sex } from '../hooks/useFilters';
 interface Props {
   people: Person[] | null;
 }
 
 export const PeopleFilters: React.FC<Props> = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const sex = searchParams.get('sex') || '';
+  const sex = searchParams.get('sex') || Sex.all;
   const selectedCenturies = searchParams.getAll('centuries');
   const query = searchParams.get('query') || '';
 
@@ -36,7 +36,9 @@ export const PeopleFilters: React.FC<Props> = () => {
         {Object.entries(SEX_FILTERS).map(([key, value]) => (
           <SearchLink
             key={key}
-            className={classNames({ 'is-active': sex === value })}
+            className={classNames({
+              'is-active': sex === value,
+            })}
             params={{ sex: value && value !== 'null' ? value : null }}
             data-cy="sex"
           >

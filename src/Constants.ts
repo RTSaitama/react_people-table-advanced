@@ -1,5 +1,5 @@
 export const SEX_FILTERS = {
-  All: 'null',
+  All: '',
   Male: 'm',
   Female: 'f',
 };
