@@ -3,7 +3,7 @@ import { getSearchWith } from '../utils/searchHelper';
 import { useSearchParams } from 'react-router-dom';
 import { useCallback } from 'react';
 import { SearchLink } from './SearchLink';
-import { SEX_FILTERS, CENTURIES_FILTERS } from '../Contsants';
+import { SEX_FILTERS, CENTURIES_FILTERS } from '../Constants';
 import { Person } from '../types';
 
 interface Props {
