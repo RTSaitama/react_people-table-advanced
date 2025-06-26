@@ -2,9 +2,11 @@ import { PeopleFilters } from './PeopleFilters';
 import { Loader } from './Loader';
 import { PeopleTable } from './PeopleTable';
 import { usePeople } from '../hooks/usePeople';
+import { useFilters } from '../hooks/useFilters';
 
 export const PeoplePage = () => {
   const { people, error, isLoading } = usePeople();
+  const { filteredPeople } = useFilters(people);
 
   if (isLoading) {
     return <Loader />;
@@ -29,6 +31,11 @@ export const PeoplePage = () => {
           <div className="column">
             <div className="box table-container">
               <PeopleTable people={people} />
+              {filteredPeople.length === 0 && (
+                <p data-cy="noPeopleMessage">
+                  There are no people on the server
+                </p>
+              )}
             </div>
           </div>
         </div>

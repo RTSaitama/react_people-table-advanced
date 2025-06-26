@@ -30,7 +30,13 @@ export const PeopleTableHeader: React.FC<Props> = ({ sort, order }) => {
               className={classNames({ 'is-active': sort === 'name' })}
             >
               <span className="icon">
-                <i className="fas fa-sort" />
+                <i
+                  className={classNames('fas', {
+                    'fa-sort': sort !== 'name',
+                    'fa-sort-up': sort === 'name' && order !== 'desc',
+                    'fa-sort-down': sort === 'name' && order === 'desc',
+                  })}
+                />
               </span>
             </SearchLink>
           </span>
@@ -44,7 +50,13 @@ export const PeopleTableHeader: React.FC<Props> = ({ sort, order }) => {
               className={classNames({ 'is-active': sort === 'sex' })}
             >
               <span className="icon">
-                <i className="fas fa-sort" />
+                <i
+                  className={classNames('fas', {
+                    'fa-sort': sort !== 'sex',
+                    'fa-sort-up': sort === 'sex' && order !== 'desc',
+                    'fa-sort-down': sort === 'sex' && order === 'desc',
+                  })}
+                />
               </span>
             </SearchLink>
           </span>
@@ -58,7 +70,13 @@ export const PeopleTableHeader: React.FC<Props> = ({ sort, order }) => {
               className={classNames({ 'is-active': sort === 'born' })}
             >
               <span className="icon">
-                <i className="fas fa-sort" />
+                <i
+                  className={classNames('fas', {
+                    'fa-sort': sort !== 'born',
+                    'fa-sort-up': sort === 'born' && order !== 'desc',
+                    'fa-sort-down': sort === 'born' && order === 'desc',
+                  })}
+                />
               </span>
             </SearchLink>
           </span>
@@ -72,7 +90,13 @@ export const PeopleTableHeader: React.FC<Props> = ({ sort, order }) => {
               className={classNames({ 'is-active': sort === 'died' })}
             >
               <span className="icon">
-                <i className="fas fa-sort" />
+                <i
+                  className={classNames('fas', {
+                    'fa-sort': sort !== 'died',
+                    'fa-sort-up': sort === 'died' && order !== 'desc',
+                    'fa-sort-down': sort === 'died' && order === 'desc',
+                  })}
+                />
               </span>
             </SearchLink>
           </span>
