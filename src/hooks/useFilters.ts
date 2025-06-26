@@ -23,7 +23,18 @@ export const useFilters = (people: Person[] | null) => {
       .filter(
         person =>
           !query ||
-          person.name.toLowerCase().trim().includes(query.toLowerCase().trim()),
+          person.name
+            .toLowerCase()
+            .trim()
+            .includes(query.toLowerCase().trim()) ||
+          (person.fatherName ?? '')
+            .toLowerCase()
+            .trim()
+            .includes(query.toLowerCase().trim()) ||
+          (person.motherName ?? '')
+            .toLowerCase()
+            .trim()
+            .includes(query.toLowerCase().trim()),
       )
       .filter(person => !sex || person.sex === sex)
       .filter(person => {

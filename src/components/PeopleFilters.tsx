@@ -10,7 +10,7 @@ interface Props {
   people: Person[] | null;
 }
 
-export const PeopleFilters: React.FC<Props> = ({ people }) => {
+export const PeopleFilters: React.FC<Props> = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const sex = searchParams.get('sex') || '';
   const selectedCenturies = searchParams.getAll('centuries');

@@ -3,6 +3,7 @@ import { Person } from '../types';
 import { useFilters } from '../hooks/useFilters';
 import { PeopleTableHeader } from './PeopleTableHeader';
 import { useSearchParams } from 'react-router-dom';
+import { PeopleCard } from './PeopleCard';
 
 interface Props {
   people: Person[] | null;
@@ -25,22 +26,7 @@ export const PeopleTable: React.FC<Props> = ({ people }) => {
       <tbody>
         {filteredPeople.map((person: Person) => {
           return (
-            <tr
-              key={person.slug}
-              data-cy="person"
-              className="has-background-warning"
-            >
-              <td>
-                <a className="has-text-danger" href={`#/people/${person.slug}`}>
-                  {person.name}
-                </a>
-              </td>
-              <td>{person.sex}</td>
-              <td>{person.born}</td>
-              <td>{person.died}</td>
-              <td>{person.motherName}</td>
-              <td>{person.fatherName}</td>
-            </tr>
+            <PeopleCard person={person} key={person.slug} people={people} />
           );
         })}
       </tbody>

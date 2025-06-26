@@ -4,7 +4,7 @@ import { PersonLink } from './PersonLink';
 import classNames from 'classnames';
 interface Props {
   person: Person;
-  people: Person[];
+  people: Person[] | null;
 }
 export const PeopleCard: React.FC<Props> = ({ person, people }) => {
   const { personSlug } = useParams();
@@ -26,6 +26,9 @@ export const PeopleCard: React.FC<Props> = ({ person, people }) => {
         'has-background-warning': selectedPerson === person.slug,
       })}
     >
+      <td>
+        <PersonLink person={person} />
+      </td>
       <td>{person.sex}</td>
       <td>{person.born}</td>
       <td>{person.died}</td>
