@@ -5,9 +5,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { App } from './App';
-import { PeoplePage } from './components/PeoplePage';
-import { HomePage } from './components/HomePage';
-import { NotFoundPage } from './components/NotFoundPage';
+import { PeoplePage } from './pages/PeoplePage';
+import { HomePage } from './pages/HomePage';
+import { NotFoundPage } from './pages/NotFoundPage';
 export const Root = () => (
   <Router>
     <Routes>
